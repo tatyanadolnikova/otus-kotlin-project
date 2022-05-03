@@ -61,11 +61,10 @@ Accounting -- это сервис финансового учета, задач�
 1. TransactionId
 2. DateTime
 3. CategoryType
-4. AccountIdFrom
-5. AccountIdTo
-6. Amount
-7. Currency (Ruble, Dollar, Euro)
-8. TransactionType (Withdrawal, Payment, Refill)
+4. AccountId
+5. Amount
+6. Currency (Ruble, Dollar, Euro)
+7. TransactionType (Withdrawal, Payment, Refill)
 
 ### Описание сущности Account
 
@@ -73,10 +72,9 @@ Accounting -- это сервис финансового учета, задач�
 2. OwnerName
 3. AccountNumber
 4. BIC
-5. RecipientBankId
+5. BankOfRecipient
 6. CorrespondentAccountNumber
 7. INN
-8. Currency
 
 ### Описание сущности Category
 
