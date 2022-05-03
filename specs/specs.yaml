@@ -1,0 +1,1026 @@
+openapi: 3.0.4
+info:
+  title: Accounting
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+  - url: http://localhost/v1
+tags:
+  - name: User
+    description: Пользователь
+  - name: Role
+    description: Роль пользователя
+  - name: Transaction
+    description: Финансовая операция
+  - name: Account
+    description: Счет
+  - name: Category
+    description: Категория расхода
+
+paths:
+  # User
+  /user/create:
+    post:
+      tags:
+        - User
+      summary: Create user
+      operationId: userCreate
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserCreateRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserCreateResponse'
+  /user/read:
+    post:
+      tags:
+        - User
+      summary: Read user
+      operationId: userRead
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserReadRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserReadResponse'
+  /user/update:
+    post:
+      tags:
+        - User
+      summary: Update user
+      operationId: userUpdate
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserUpdateRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserUpdateResponse'
+  /user/delete:
+    post:
+      tags:
+        - User
+      summary: Delete user
+      operationId: userDelete
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDeleteRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDeleteResponse'
+  /user/search:
+    post:
+      tags:
+        - User
+      summary: Update user
+      operationId: userSearch
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserSearchRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserSearchResponse'
+  # Role
+  /role/create:
+    post:
+      tags:
+        - Role
+      summary: Create role
+      operationId: roleCreate
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RoleCreateRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoleCreateResponse'
+  /role/read:
+    post:
+      tags:
+        - Role
+      summary: Read role
+      operationId: roleRead
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RoleReadRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoleReadResponse'
+  /role/update:
+    post:
+      tags:
+        - Role
+      summary: Update role
+      operationId: roleUpdate
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RoleUpdateRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoleUpdateResponse'
+  /role/delete:
+    post:
+      tags:
+        - Role
+      summary: Delete role
+      operationId: roleDelete
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RoleDeleteRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoleDeleteResponse'
+  # Transaction
+  /transaction/create:
+    post:
+      tags:
+        - Transaction
+      summary: Create transaction
+      operationId: transactionCreate
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionCreateRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionCreateResponse'
+  /transaction/read:
+    post:
+      tags:
+        - Transaction
+      summary: Read transaction
+      operationId: transactionRead
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionReadRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionReadResponse'
+  /transaction/update:
+    post:
+      tags:
+        - Transaction
+      summary: Update transaction
+      operationId: transactionUpdate
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionUpdateRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionUpdateResponse'
+  /transaction/delete:
+    post:
+      tags:
+        - Transaction
+      summary: Delete transaction
+      operationId: transactionDelete
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionDeleteRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionDeleteResponse'
+  # Account
+  /account/create:
+    post:
+      tags:
+        - Account
+      summary: Create account
+      operationId: accountCreate
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountCreateRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountCreateResponse'
+  /account/read:
+    post:
+      tags:
+        - Account
+      summary: Read account
+      operationId: accountRead
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountReadRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountReadResponse'
+  /account/update:
+    post:
+      tags:
+        - Account
+      summary: Update account
+      operationId: accountUpdate
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountUpdateRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountUpdateResponse'
+  /account/delete:
+    post:
+      tags:
+        - Account
+      summary: Delete account
+      operationId: accountDelete
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountDeleteRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountDeleteResponse'
+  # Category
+  /category/create:
+    post:
+      tags:
+        - Category
+      summary: Create category
+      operationId: categoryCreate
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CategoryCreateRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoryCreateResponse'
+  /category/read:
+    post:
+      tags:
+        - Category
+      summary: Read category
+      operationId: categoryRead
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CategoryReadRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoryReadResponse'
+  /category/update:
+    post:
+      tags:
+        - Category
+      summary: Update category
+      operationId: categoryUpdate
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CategoryUpdateRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoryUpdateResponse'
+  /category/delete:
+    post:
+      tags:
+        - Category
+      summary: Delete category
+      operationId: categoryDelete
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CategoryDeleteRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoryDeleteResponse'
+
+components:
+  schemas:
+    # Common
+    RequestDebugMode:
+      type: string
+      enum:
+        - prod
+        - test
+        - stub
+    TransactionType:
+      type: string
+      enum:
+        - withdrawal
+        - payment
+        - refill
+    Currency:
+      type: string
+      enum:
+        - ruble
+        - euro
+        - dollar
+    IRequest:
+      type: object
+      description: Базовый интерфейс для всех запросов
+      properties:
+        requestType:
+          type: string
+          description: Поле-дескриминатор для вычисления типа запроса
+          example: create
+        requestId:
+          type: string
+          description: Идентификатор запроса для отладки
+      discriminator:
+        propertyName: requestType
+        mapping:
+          createUser: '#/components/schemas/UserCreateRequest'
+          readUser: '#/components/schemas/UserReadRequest'
+          updateUser: '#/components/schemas/UserUpdateRequest'
+          deleteUser: '#/components/schemas/UserDeleteRequest'
+          searchUser: '#/components/schemas/UserSearchRequest'
+          roleCreate: '#/components/schemas/RoleCreateRequest'
+          roleRead: '#/components/schemas/RoleReadRequest'
+          roleUpdate: '#/components/schemas/RoleUpdateRequest'
+          roleDelete: '#/components/schemas/RoleDeleteRequest'
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        group:
+          type: string
+        field:
+          type: string
+        message:
+          type: string
+    ResponseResult:
+      type: string
+      enum:
+        - success
+        - error
+    IResponse:
+      type: object
+      description: Базовый интерфейс для всех ответов
+      properties:
+        responseType:
+          type: string
+          description: Поле-дескриминатор для вычисления типа запроса
+          example: create
+        requestId:
+          type: string
+          description: Идентификатор запроса для отладки
+        result:
+          $ref: '#/components/schemas/ResponseResult'
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+
+      discriminator:
+        propertyName: responseType
+        mapping:
+          create: '#/components/schemas/UserCreateResponse'
+          read: '#/components/schemas/UserReadResponse'
+          update: '#/components/schemas/UserUpdateResponse'
+          delete: '#/components/schemas/UserDeleteResponse'
+          search: '#/components/schemas/UserSearchResponse'
+    BaseIdRequest:
+      type: object
+      properties:
+        role:
+          type: object
+          properties:
+            id:
+              type: string
+
+    # User
+    BaseUserUpdateable:
+      type: object
+      description: Объект описывает свойства, одинаковые для create и update
+      properties:
+        firstName:
+          type: string
+        middleName:
+          type: string
+        lastName:
+          type: string
+        birthDate:
+          type: string
+          format: date
+          example: "2022-05-01"
+        email:
+          type: string
+        phoneNumber:
+          type: string
+        accounts:
+          type: array
+          items:
+            type: string
+        roleId:
+          type: string
+    UserCreateRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/RequestDebug'
+        - type: object
+          properties:
+            user:
+              $ref: '#/components/schemas/UserCreateObject'
+    UserReadRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/BaseIdRequest'
+        - $ref: '#/components/schemas/RequestDebug'
+    UserCreateObject:
+      allOf:
+        - $ref: '#/components/schemas/BaseUserUpdateable'
+    UserUpdateObject:
+      allOf:
+        - $ref: '#/components/schemas/BaseUserUpdateable'
+        - type: object
+          properties:
+            id:
+              type: string
+    UserUpdateRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/RequestDebug'
+        - type: object
+          properties:
+            user:
+              $ref: '#/components/schemas/UserUpdateObject'
+    UserDeleteRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/BaseIdRequest'
+        - $ref: '#/components/schemas/RequestDebug'
+    UserSearchFilter:
+      type: object
+      description: Набор фильтров для поиска юзера
+      properties:
+        firstName:
+          type: string
+        middleName:
+          type: string
+        lastName:
+          type: string
+        phoneNumber:
+          type: string
+        roleId:
+          type: string
+    UserSearchRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/RequestDebug'
+        - type: object
+          properties:
+            userFilter:
+              $ref: '#/components/schemas/UserSearchFilter'
+
+    UserResponseObject:
+      allOf:
+        - $ref: '#/components/schemas/BaseUserUpdateable'
+        - type: object
+          description: Объект, который возвращается в ответе бэкенда
+          properties:
+            id:
+              type: string
+    UserResponseSingle:
+      allOf:
+        - type: object
+          properties:
+            user:
+              $ref: '#/components/schemas/UserResponseObject'
+    UserCreateResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/UserResponseSingle'
+    UserReadResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/UserResponseSingle'
+    UserUpdateResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/UserResponseSingle'
+    UserDeleteResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/UserResponseSingle'
+    UserSearchResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - type: object
+          properties:
+            users:
+              type: array
+              items:
+                $ref: '#/components/schemas/UserResponseObject'
+
+    # Role
+    BaseRoleUpdateable:
+      type: object
+      description: Объект описывает свойства, одинаковые для create и update
+      properties:
+        title:
+          type: string
+        permissions:
+          type: array
+          items:
+            type: string
+    RoleCreateRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/RequestDebug'
+        - type: object
+          properties:
+            role:
+              $ref: '#/components/schemas/RoleCreateObject'
+    RoleReadRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/BaseIdRequest'
+        - $ref: '#/components/schemas/RequestDebug'
+    RoleCreateObject:
+      allOf:
+        - $ref: '#/components/schemas/BaseRoleUpdateable'
+    RoleUpdateObject:
+      allOf:
+        - $ref: '#/components/schemas/BaseRoleUpdateable'
+        - type: object
+          properties:
+            id:
+              type: string
+    RoleUpdateRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/RequestDebug'
+        - type: object
+          properties:
+            role:
+              $ref: '#/components/schemas/RoleUpdateObject'
+    RoleDeleteRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/BaseIdRequest'
+        - $ref: '#/components/schemas/RequestDebug'
+
+    RoleResponseObject:
+      allOf:
+        - $ref: '#/components/schemas/BaseRoleUpdateable'
+        - type: object
+          description: Объект, который возвращается в ответе бэкенда
+          properties:
+            id:
+              type: string
+    RoleResponseSingle:
+      allOf:
+        - type: object
+          properties:
+            role:
+              $ref: '#/components/schemas/RoleResponseObject'
+    RoleCreateResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/RoleResponseSingle'
+    RoleReadResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/RoleResponseSingle'
+    RoleUpdateResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/RoleResponseSingle'
+    RoleDeleteResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/RoleResponseSingle'
+
+    # Transaction
+    BaseTransactionUpdateable:
+      type: object
+      description: Объект описывает свойства, одинаковые для create и update
+      properties:
+        dateTime:
+          type: string
+          format: datetime
+          example: "2022-05-01T08:30:00Z"
+        categoryType:
+          type: string
+        accountIdFrom:
+          type: string
+        accountIdTo:
+          type: string
+        amount:
+          type: string
+        currency:
+          type: string
+        transactionType:
+          type: string
+    TransactionCreateRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/RequestDebug'
+        - type: object
+          properties:
+            transaction:
+              $ref: '#/components/schemas/TransactionCreateObject'
+    TransactionReadRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/BaseIdRequest'
+        - $ref: '#/components/schemas/RequestDebug'
+    TransactionCreateObject:
+      allOf:
+        - $ref: '#/components/schemas/BaseTransactionUpdateable'
+    TransactionUpdateObject:
+      allOf:
+        - $ref: '#/components/schemas/BaseTransactionUpdateable'
+        - type: object
+          properties:
+            id:
+              type: string
+    TransactionUpdateRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/RequestDebug'
+        - type: object
+          properties:
+            transaction:
+              $ref: '#/components/schemas/TransactionUpdateObject'
+    TransactionDeleteRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/BaseIdRequest'
+        - $ref: '#/components/schemas/RequestDebug'
+
+    TransactionResponseObject:
+      allOf:
+        - $ref: '#/components/schemas/BaseTransactionUpdateable'
+        - type: object
+          description: Объект, который возвращается в ответе бэкенда
+          properties:
+            id:
+              type: string
+    TransactionResponseSingle:
+      allOf:
+        - type: object
+          properties:
+            transaction:
+              $ref: '#/components/schemas/TransactionResponseObject'
+    TransactionCreateResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/TransactionResponseSingle'
+    TransactionReadResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/TransactionResponseSingle'
+    TransactionUpdateResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/TransactionResponseSingle'
+    TransactionDeleteResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/TransactionResponseSingle'
+
+    # Account
+    BaseAccountUpdateable:
+      type: object
+      description: Объект описывает свойства, одинаковые для create и update
+      properties:
+        contractId:
+          type: string
+        ownerName:
+          type: string
+        accountNumber:
+          type: string
+        bic:
+          type: string
+        recipientBankId:
+          type: string
+        correspondentAccountNumber:
+          type: string
+        inn:
+          type: string
+        currency:
+          type: string
+    AccountCreateRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/RequestDebug'
+        - type: object
+          properties:
+            account:
+              $ref: '#/components/schemas/AccountCreateObject'
+    AccountReadRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/BaseIdRequest'
+        - $ref: '#/components/schemas/RequestDebug'
+    AccountCreateObject:
+      allOf:
+        - $ref: '#/components/schemas/BaseAccountUpdateable'
+    AccountUpdateObject:
+      allOf:
+        - $ref: '#/components/schemas/BaseAccountUpdateable'
+        - type: object
+          properties:
+            id:
+              type: string
+    AccountUpdateRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/RequestDebug'
+        - type: object
+          properties:
+            account:
+              $ref: '#/components/schemas/AccountUpdateObject'
+    AccountDeleteRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/BaseIdRequest'
+        - $ref: '#/components/schemas/RequestDebug'
+
+    AccountResponseObject:
+      allOf:
+        - $ref: '#/components/schemas/BaseAccountUpdateable'
+        - type: object
+          description: Объект, который возвращается в ответе бэкенда
+          properties:
+            id:
+              type: string
+    AccountResponseSingle:
+      allOf:
+        - type: object
+          properties:
+            account:
+              $ref: '#/components/schemas/AccountResponseObject'
+    AccountCreateResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/AccountResponseSingle'
+    AccountReadResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/AccountResponseSingle'
+    AccountUpdateResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/AccountResponseSingle'
+    AccountDeleteResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/AccountResponseSingle'
+
+    # Category
+    BaseCategoryUpdateable:
+      type: object
+      description: Объект описывает свойства, одинаковые для create и update
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+    CategoryCreateRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/RequestDebug'
+        - type: object
+          properties:
+            category:
+              $ref: '#/components/schemas/CategoryCreateObject'
+    CategoryReadRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/BaseIdRequest'
+        - $ref: '#/components/schemas/RequestDebug'
+    CategoryCreateObject:
+      allOf:
+        - $ref: '#/components/schemas/BaseCategoryUpdateable'
+    CategoryUpdateObject:
+      allOf:
+        - $ref: '#/components/schemas/BaseCategoryUpdateable'
+        - type: object
+          properties:
+            id:
+              type: string
+    CategoryUpdateRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/RequestDebug'
+        - type: object
+          properties:
+            category:
+              $ref: '#/components/schemas/CategoryUpdateObject'
+    CategoryDeleteRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/BaseIdRequest'
+        - $ref: '#/components/schemas/RequestDebug'
+
+    CategoryResponseObject:
+      allOf:
+        - $ref: '#/components/schemas/BaseCategoryUpdateable'
+        - type: object
+          description: Объект, который возвращается в ответе бэкенда
+          properties:
+            id:
+              type: string
+    CategoryResponseSingle:
+      allOf:
+        - type: object
+          properties:
+            category:
+              $ref: '#/components/schemas/CategoryResponseObject'
+    CategoryCreateResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/CategoryResponseSingle'
+    CategoryReadResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/CategoryResponseSingle'
+    CategoryUpdateResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/CategoryResponseSingle'
+    CategoryDeleteResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/CategoryResponseSingle'
+
+    # STUBS ======================
+    RequestDebug:
+      type: object
+      properties:
+        debug:
+          $ref: '#/components/schemas/Debug'
+    Debug:
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/RequestDebugMode'
+        stub:
+          $ref: '#/components/schemas/RequestDebugStub'
+    RequestDebugStub:
+      type: string
+      description: Перечисление всех стабов
+      enum:
+        - success
+        - notFound
+        - badId
+        - badTitle
+        - badDescription
+        - badVisibility
+        - cannotDelete
+        - badSearchString

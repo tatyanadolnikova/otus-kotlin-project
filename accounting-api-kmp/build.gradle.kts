@@ -1,48 +1,23 @@
 plugins {
-    kotlin("multiplatform")
+    kotlin("jvm")
     id("org.openapi.generator")
-    kotlin("plugin.serialization")
 }
 
 group = rootProject.group
 version = rootProject.version
 
-kotlin {
-    jvm {}
+dependencies {
+    val jacksonVersion: String by project
+    implementation(kotlin("stdlib-jdk8"))
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonVersion")
 
-    sourceSets {
-        val coroutinesVersion: String by project
-        val serializationVersion: String by project
+    testImplementation(kotlin("test-junit"))
+}
 
-        val commonMain by getting {
-            kotlin.srcDirs("$buildDir/generate-resources/main/src/commonMain/kotlin")
-            dependencies {
-                implementation(kotlin("stdlib-common"))
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
-            }
-        }
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test-common"))
-                implementation(kotlin("test-annotations-common"))
-            }
-        }
-        val jvmMain by getting {
-            dependencies {
-                implementation(kotlin("stdlib-jdk8"))
-            }
-        }
-        val jvmTest by getting {
-            dependencies {
-                implementation(kotlin("test-junit"))
-            }
-        }
-
-        all {
-            languageSettings.optIn("kotlin.RequiresOptIn")
-        }
+sourceSets {
+    main {
+        java.srcDir("$buildDir/generate-resources/main/src/main/kotlin")
     }
 }
 
@@ -50,14 +25,13 @@ kotlin {
  * Настраиваем генерацию здесь
  */
 openApiGenerate {
-    val openapiGroup = "${rootProject.group}.api.v2"
+    val openapiGroup = "${rootProject.group}.v1"
     generatorName.set("kotlin") // Это и есть активный генератор
     packageName.set(openapiGroup)
     apiPackage.set("$openapiGroup.api")
-    modelPackage.set("$openapiGroup.models")
+    modelPackage.set("$openapiGroup.model")
     invokerPackage.set("$openapiGroup.invoker")
-    inputSpec.set("$rootDir/specs/specs-ad-v2.yaml")
-    library.set("multiplatform") // Используем библиотеку для KMP
+    inputSpec.set("$rootDir/specs/specs.yaml")
 
     /**
      * Здесь указываем, что нам нужны только модели, все остальное не нужно
@@ -67,22 +41,23 @@ openApiGenerate {
         put("modelDocs", "false")
     }
 
+    /**
+     * Настройка дополнительных параметров из документации по генератору
+     * https://github.com/OpenAPITools/openapi-generator/blob/master/docs/generators/kotlin.md
+     */
     configOptions.set(mapOf(
         "dateLibrary" to "string",
         "enumPropertyNaming" to "UPPERCASE",
-//        "serializationLibrary" to "jackson",
+        "serializationLibrary" to "jackson",
         "collectionType" to "list"
     ))
 }
 
 tasks {
-    allMetadataJar {
+    compileKotlin {
         dependsOn(openApiGenerate)
     }
-    val compileKotlinJvm by getting {
-        dependsOn(openApiGenerate)
-    }
-    val compileTestKotlinJvm by getting {
+    compileTestKotlin {
         dependsOn(openApiGenerate)
     }
 }
